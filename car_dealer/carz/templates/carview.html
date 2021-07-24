@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Car View {% endblock %}
+{% block content %}
+<div class="container mt-4">
+	<div class="card col-md-8 mx-auto shadow-lg">
+		<div class="card-body">
+			<h3>Car View</h3>
+			<div class="row">
+				<div class="col-sm">
+					<img src="{{z.carimg.url}}" height="180px" width="100%">
+				</div>
+				<div class="col">
+					<table class="table table-borderless">
+				<tr>
+					<th>Car Name</th>
+					<td>{{z.carname}}</td>
+				</tr>
+				<tr>
+					<th>Car Cost</th>
+					<td>{{z.carprice}}</td>
+				</tr>
+				<tr>
+					<th>Car Type</th>
+					<td>{{z.carmodel}}</td>
+				</tr>
+				<tr>
+					<th>Mfg Year</th>
+					<td>{{z.purchased_year}}</td>
+				</tr>
+                <tr>
+					<th>Fuel Type</th>
+					<td>{{z.carfuel}}</td>
+				</tr>
+                <tr>
+					<th>No.of Seats</th>
+					<td>{{z.carseats}}</td>
+				</tr>
+                <tr>
+					<th>Kms completed</th>
+					<td>{{z.carkms}}</td>
+				</tr>
+			</table>
+				</div>
+			</div>
+			<a href="{% url 'carlst' %}" class="btn btn-block btn-outline-info my-2">Back to List</a>
+		</div>
+	</div>
+</div>
+{% endblock %} 

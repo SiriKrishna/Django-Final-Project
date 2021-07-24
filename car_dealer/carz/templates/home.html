@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load bootstrap %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  {% if user.role == 2 %}
+  <div class="row">
+    <div class="col">
+      <div class="card card-body">
+        <form method="get">
+            {{myFilter.form}}
+
+
+        </form>
+      </div>
+    </div>        
+  </div>
+  <div class="row mx-2">
+  	{% for x in c %}
+  	<div class="col col-md-3">
+  		<div class="card shadow-lg my-2">
+  			<img src="{{x.carimg.url}}" class="card-img-top" height="120px">
+  			<div class="card-body">
+  				<tr>
+  					<td><span class="badge badge-info" style="font-size:25px">{{x.carname}}</span>
+  					<span style="font-size: 20px;float:right">₹{{x.carprice}}</span></td>
+  				</tr>
+           <div class="row">
+            <div class="col">
+              <h6><span> {{x.carmodel}}</span></h6>
+            </div>
+            <div class="col">
+              <h6><span class="float-right">{{x.purchased_year}}yr</span></h6>
+            </div>
+          </div>
+           <div class="row">
+            <div class="col">
+              <h6><span>{{x.carfuel}}</span></h6>
+            </div>
+            <div class="col">
+              <h6><span class="float-right">{{x.carkms}}Kms</span></h6>
+            </div>
+          </div>
+  			 <div class="row">
+            <div class="col">
+              <a href="{% url 'crvw' x.id %}" class="btn btn-outline-success my-1 form-control">View</a>
+            </div>
+            <div class="col">
+              <a href="{% url 'pam' x.id %}" class="btn btn-outline-dark my-1 form-control">Buy</a>
+            </div>
+          </div>
+  			</div>
+  		</div>
+  	</div>
+  	{% endfor %}
+  </div>
+  </div>
+  {% elif user.role == 1 %}
+  <div class="jumbotron col-md-6 mx-auto shadow-lg mt-4">
+    <h3>You are in Guest Account</h3>
+  </div>
+  {% else %}
+  <div class="jumbotron col-md-6 mx-auto shadow-lg mt-4">
+    <h3>Welcome to Restaurant Home Page</h3>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
