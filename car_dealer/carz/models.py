@@ -32,7 +32,7 @@ class User(AbstractUser):
 	mobilenumber = models.CharField(max_length=10,null=True)
 	uimg = models.ImageField(upload_to='Profilepics/',default='ics.jpg')
 	t = [(1,'Guest'),(2,'Manager'),(3,'User')]
-	role = models.IntegerField(choices=t,default=1)
+	role = models.IntegerField(choices=t,default=3)
 
 class Rolereq(models.Model):
 	f = [(2,'Manager'),(3,'User')]

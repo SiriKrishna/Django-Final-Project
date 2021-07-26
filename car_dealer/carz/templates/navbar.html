@@ -1,5 +1,5 @@
 <!-- {% load static %} -->
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
   <!-- Brand/logo -->
   <a class="navbar-brand" href="{% url 'hm' %}">CarZ
     <!-- <img src="{% static 'images/ics.jpg' %}" alt="logo" style="width:40px;"> -->
@@ -32,7 +32,7 @@
       <a class="nav-link" href="{% url 'hm' %}">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{% url 'carlst' %}">Car List List</a>
+      <a class="nav-link" href="{% url 'carlst' %}">Car List</a>
     </li>
     
     {% elif user.is_superuser %}
